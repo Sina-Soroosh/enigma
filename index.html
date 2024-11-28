@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enigma</title>
+  </head>
+  <body>
+    <div class="form_division">
+      <form>
+        <div class="">
+          <label for="">First Router</label>
+          <select name="" id="first_router">
+            <option value="0" selected>I</option>
+            <option value="1">II</option>
+            <option value="2">III</option>
+            <option value="3">IV</option>
+            <option value="4">V</option>
+          </select>
+        </div>
+        <div class="">
+          <label for="">Second Router</label>
+          <select name="" id="second_router">
+            <option value="0">I</option>
+            <option value="1" selected>II</option>
+            <option value="2">III</option>
+            <option value="3">IV</option>
+            <option value="4">V</option>
+          </select>
+        </div>
+        <div class="">
+          <label for="">Third Router</label>
+          <select name="" id="third_router">
+            <option value="0">I</option>
+            <option value="1">II</option>
+            <option value="2" selected>III</option>
+            <option value="3">IV</option>
+            <option value="4">V</option>
+          </select>
+        </div>
+        <div class="">
+          <label for="">First Router Rotation</label>
+          <input type="number" min="0" required id="first_rotation" />
+        </div>
+        <div class="">
+          <label for="">Second Router Rotation</label>
+          <input type="number" min="0" required id="second_rotation" />
+        </div>
+        <div class="">
+          <label for="">Third Router Rotation</label>
+          <input type="number" min="0" required id="third_rotation" />
+        </div>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </div>
+
+    <div class="text" style="display: none">
+      <textarea id="plain_text"></textarea>
+      <p id="encryption_text"></p>
+      <button id="change_setting_btn">Change Setting</button>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
