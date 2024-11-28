@@ -36,17 +36,17 @@ form.addEventListener("submit", (e) => {
   textDivision.style = "display:block;";
 });
 
-plain_text.addEventListener("keypress", (e) => {
-  try {
-    const encryptionLetter = generateEncryption(e.key);
-    encryption_text.innerHTML += encryptionLetter;
-  } catch (error) {
-    e.preventDefault();
-  }
-});
-
 plain_text.addEventListener("keydown", (e) => {
   if (e.key === "Backspace") {
+    e.preventDefault();
+  }
+
+  try {
+    if (e.key.length === 1) {
+      const encryptionLetter = generateEncryption(e.key);
+      encryption_text.innerHTML += encryptionLetter;
+    }
+  } catch (error) {
     e.preventDefault();
   }
 });
