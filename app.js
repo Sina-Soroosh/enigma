@@ -17,10 +17,9 @@ const textDivision = $.querySelector(".text");
 const plain_text = $.querySelector("#plain_text");
 const encryption_text = $.querySelector("#encryption_text");
 const change_setting_btn = $.querySelector("#change_setting_btn");
+const encryption_submit_btn = $.querySelector("#submit-encryption");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
+const setRoutersAndRotation = () => {
   setRouters(
     +firstRouterInput.value,
     +secondRouterInput.value,
@@ -31,25 +30,27 @@ form.addEventListener("submit", (e) => {
     +secondRotationInput.value,
     +thirdRotationInput.value
   );
+};
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  setRoutersAndRotation();
 
   formDivision.style = "display:none;";
   textDivision.style = "display:block;";
 });
 
-plain_text.addEventListener("keydown", (e) => {
-  if (e.key === "Backspace") {
-    e.preventDefault();
-  }
+encryption_submit_btn.onclick = () => {
+  setRoutersAndRotation();
 
   try {
-    if (e.key.length === 1) {
-      const encryptionLetter = generateEncryption(e.key);
-      encryption_text.innerHTML += encryptionLetter;
-    }
+    const encryption = generateEncryption(plain_text.value.trim());
+    encryption_text.innerHTML = encryption;
   } catch (error) {
-    e.preventDefault();
+    encryption_text.innerHTML = "";
   }
-});
+};
 
 change_setting_btn.onclick = () => {
   formDivision.style = "display:block;";
